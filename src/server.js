@@ -47,7 +47,8 @@ app.get('/', async function handler(request, reply) {
 
 // Run the server!
 try {
-    await app.listen({ port: 3333 })
+    const PORT = process.env.PORT || 3000;
+    app.listen({ port: PORT, host: '0.0.0.0' })
 } catch (err) {
     app.log.error(err)
     process.exit(1)
