@@ -7,6 +7,8 @@ import cors from '@fastify/cors'
 import usersRoutes from './routes/users.route.js';
 import classesRoutes from './routes/classes/classes.routes.js';
 import callRoutes from './routes/call.route.js';
+import studentRoutes from './routes/students/student.routes.js';
+import notebookRoutes from './routes/notebooks/notebook.route.js';
 
 const app = Fastify({
     logger: true
@@ -28,6 +30,14 @@ await app.register(classesRoutes, {
 
 await app.register(callRoutes, {
     prefix: '/call'
+})
+
+await app.register(studentRoutes, {
+    prefix: '/students'
+})
+
+await app.register(notebookRoutes, {
+    prefix: '/notebooks'
 })
 
 // Declare a route
