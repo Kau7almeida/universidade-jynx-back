@@ -26,4 +26,13 @@ export default function usersRoutes(app) {
         }
     })
 
+    app.post('/login', (req, reply) => {
+        try {
+            // reply.code(201).send(userController.login(req))
+            return userController.login(req)
+        } catch (err) {
+            reply.code(400).send('Erro ao cadastrar usuário' + err)
+        }
+    })
+
 }
