@@ -10,11 +10,12 @@ const callsController = {
 
         try {
 
-            const { name, classe_id } = req.body
+            // const { name, classe_id } = req.body
+            const { name } = req.body
 
             await callRepository.createCall(
-                name,
-                classe_id
+                name
+                // classe_id
             )
 
             return { 'message': 'success' }
